@@ -20,7 +20,7 @@ import {
   generateValidation,
 } from '@/utils/generate.util'
 const isGenerated = ref(false)
-
+const formTitle = ref('')
 const formFields = ref<FormField[]>([
   {
     type: 'input',
@@ -72,7 +72,7 @@ function generateForm() {
   contentScriptString += generateFormState(formFields.value)
   contentScriptString += generateValidation(formFields.value)
   contentScriptString += generateFunctions()
-  contentTemplateString += generateTemplate(formFields.value)
+  contentTemplateString += generateTemplate(formFields.value, formTitle.value)
   isGenerated.value = true
   return generateSFC(contentScriptString, contentTemplateString)
 }
@@ -93,7 +93,13 @@ function copyToClipboard() {
       <div class="lg:col-span-6 col-span-12">
         <FormItem>
           <label for="formtitle">Form title</label>
-          <Input size="large" id="formtitle" class="mt-2" placeholder="Form title"></Input>
+          <Input
+            v-model:value="formTitle"
+            size="large"
+            id="formtitle"
+            class="mt-2"
+            placeholder="Form title"
+          ></Input>
         </FormItem>
       </div>
       <!-- dynamic fields -->
@@ -189,7 +195,13 @@ function copyToClipboard() {
     </div>
     <!-- generate form -->
     <div class="flex items-center justify-end">
-      <Button html-type="submit" size="large" class="" type="primary" @click="generateForm">
+      <Button
+        class="submit-btn"
+        html-type="submit"
+        size="large"
+        type="primary"
+        @click="generateForm"
+      >
         <FormOutlined class="self-center"></FormOutlined>
         <span class=""> Generate form </span>
       </Button>
@@ -208,4 +220,17 @@ function copyToClipboard() {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import url('../assets/main.css');
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.submit-btn {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  margin-top: 10px;
+}
+</style>

@@ -1,1 +1,115 @@
-@import 'tailwindcss';
+/* Grid setup */
+.grid {
+  display: grid;
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem; /* 16px */
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* Column spans */
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+.col-span-11 {
+  grid-column: span 11 / span 11;
+}
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+
+/* Large breakpoint column spans */
+@media (min-width: 1024px) {
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+  .lg\:col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+}
+
+/* Spacing & margins */
+.mt-2 {
+  margin-top: 0.5rem; /* 8px */
+}
+.mt-4 {
+  margin-top: 1rem; /* 16px */
+}
+.p-4 {
+  padding: 1rem; /* 16px */
+}
+
+/* Cursor */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Background colors */
+.bg-gray-100 {
+  background-color: rgb(243 244 246); /* Tailwind gray-100 */
+}
+
+/* Text styles */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-gray-500 {
+  color: rgb(107 114 128); /* Tailwind gray-500 */
+}
+.font-mono {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
+/* Positioning */
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.top-2 {
+  top: 0.5rem;
+}
+.right-2 {
+  right: 0.5rem;
+}
+
+/* Rounded corners */
+.rounded {
+  border-radius: 0.25rem; /* 4px */
+}

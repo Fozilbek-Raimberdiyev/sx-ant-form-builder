@@ -46,8 +46,9 @@ const handleReset = () => {
     `
 }
 
-export function generateTemplate(formFields: FormField[]) {
+export function generateTemplate(formFields: FormField[], formTitle: string) {
   return `
+  <h1 class="text-[#181818] font-medium text-2xl leading-[130%] my-6">${formTitle}</h1>
     <Form
       @submit="handleSubmit"
       ref="formRef"
